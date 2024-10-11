@@ -37,8 +37,7 @@ int main() {
 		for (int i = 0; i < purchases.size(); i++) {// Âûâåäåíèå ÷åêà
 			if (purchases[i].quantity > 0) {
 				double overall_price = 0;
-				std::cout << " |\t\t\t\t\t-------\t\t\t\t\t\t|\n |\t\t\t\t\t| ×ÅÊ |" <<
-					"\t\t\t\t\t\t|\n | \t\t\t\t\t-------\t\t\t\t\t\t|\n" <<
+				std::cout << " |\t\t\t\t\t-------\t\t\t\t\t\t|\n |\t\t\t\t\t| ×ÅÊ |\t\t\t\t\t\t|\n |\t\t\t\t\t-------\t\t\t\t\t\t|\n" <<
 					" |\tÍÀÈÌÅÍÎÂÀÍÈÅ\t\tÊÎË-ÂÎ\tÑÓÌÌÀ\t\tÑÊÈÄÊÀ\t\tÈÒÎÃÎ\t\t|\n";
 				for (int j = 0; j < purchases.size(); j++) {
 					if (purchases[j].quantity > 0) {
@@ -51,8 +50,8 @@ int main() {
 							"\t\t" << purchases[j].result_price << "ðóá.\t|\n";
 					}
 				}
-				double result_overall_price = discount("all", overall_price, 1);
-				std::cout << " |\tÈÒÎÃÎ\t\t\t\t\t\t" << overall_price << "\t\t" << result_overall_price << "\t\t|\n";
+				overall_price = discount("all", overall_price, 1);
+				std::cout << " |\tÈÒÎÃÎ\t\t\t\t\t\t\t\t" << overall_price << "\t\t|\n";
 				break;
 			}
 		}
