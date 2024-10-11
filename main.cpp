@@ -36,7 +36,7 @@ int main() {
 
 		for (int i = 0; i < purchases.size(); i++) {// Âûâåäåíèå ÷åêà
 			if (purchases[i].quantity > 0) {
-				double overall_price = 0;
+				double result_overall_price, overall_price = 0;
 				std::cout << " |\t\t\t\t\t-------\t\t\t\t\t\t|\n |\t\t\t\t\t| ×ÅÊ |" <<
 					"\t\t\t\t\t\t|\n | \t\t\t\t\t-------\t\t\t\t\t\t|\n" <<
 					" |\tÍÀÈÌÅÍÎÂÀÍÈÅ\t\tÊÎË-ÂÎ\tÑÓÌÌÀ\t\tÑÊÈÄÊÀ\t\tÈÒÎÃÎ\t\t|\n";
@@ -51,7 +51,13 @@ int main() {
 							"\t\t" << purchases[j].result_price << "ðóá.\t|\n";
 					}
 				}
-				double result_overall_price = discount("all", overall_price, 1);
+				bool is_all_tea = true;
+				for (int j = 7; j < 11; j++) {
+					if (purchases[j].quantity == 0) { is_all_tea = false; }
+				}
+				result_overall_price = overall_price;
+				if (is_all_tea) { result_overall_price = discount("all_tea", result_overall_price, 1); }
+				result_overall_price = discount("all", result_overall_price, 1);
 				std::cout << " |\tÈÒÎÃÎ\t\t\t\t\t\t" << overall_price << "\t\t" << result_overall_price << "\t\t|\n";
 				break;
 			}

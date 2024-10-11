@@ -10,6 +10,9 @@ double discount(std::string name, double price, unsigned short quantity) {
 	else if (name == "all" && price > 800.0) {
 		return 0.87 * price;
 	}
+	else if (name == "all_tea") {
+		return 0.80 * price;
+	}
 	else {
 		return price;
 	}
